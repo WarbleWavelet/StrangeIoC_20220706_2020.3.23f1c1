@@ -6,6 +6,7 @@
 	功能：被ContextView调用
 *****************************************************/
 
+using strange.extensions.context.api;
 using strange.extensions.context.impl;
 using System.Collections;
 using System.Collections.Generic;
@@ -26,7 +27,8 @@ namespace Demo01
         /// </summary>
         protected override void mapBindings()
         {
-            base.mapBindings(); 
+            //枚举、字符串
+            commandBinder.Bind(ContextEvent.START).To<StartCommand>();
         }
     }
 }
