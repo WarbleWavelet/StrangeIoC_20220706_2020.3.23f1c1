@@ -45,7 +45,7 @@ namespace Demo01
 
         private void BindModel()
         {
-            injectionBinder.Bind<CubeView>().To(CmdEvent.ReqScore);
+            injectionBinder.Bind<ScoreModel>().To<ScoreModel>().ToSingleton();//自身实例化
         }
         private void BindService()
         {

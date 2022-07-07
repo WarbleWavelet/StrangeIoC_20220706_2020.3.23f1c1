@@ -17,10 +17,12 @@ using Random = UnityEngine.Random;
 
 namespace Demo01
 { 
-public class ReqScoreCmd : Command
+public class ReqScoreCmd : EventCommand//多了全局的Disphter和IEvent
 {
     [Inject]
     public IScoreSvc ScoreSvc { get; set; }
+    [Inject]
+    public ScoreModel ScoreModel { get; set; }
 
     public override void Execute()
     {
@@ -41,6 +43,9 @@ public class ReqScoreCmd : Command
         {
             Debug.Log("OnComplete_" + evt.data);
             this.ScoreSvc.Dispatcher.RemoveListener(CmdEvent.ReqScore, OnComplete);
+            //
+            dispatcher.Dispatch( MediatorEvent.ScoreChange, evt.data);
+
             //
             Release();
         }

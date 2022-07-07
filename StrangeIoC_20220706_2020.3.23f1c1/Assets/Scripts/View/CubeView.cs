@@ -78,7 +78,6 @@ public class CubeView : View
 
     public void UpdateScore(int score)
     {
-        score++;
         txtScore.text=score.ToString();
     }
 

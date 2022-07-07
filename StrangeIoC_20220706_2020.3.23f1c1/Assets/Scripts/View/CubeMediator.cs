@@ -24,7 +24,7 @@ public class CubeMediator : Mediator
     public CubeView CubeView { get; set; }//Demo01_MVCSContext
 
     /// <summary>模块之间的交互</summary>
-  [Inject(ContextKeys.CONTEXT_DISPATCHER)]//全局的
+    [Inject(ContextKeys.CONTEXT_DISPATCHER)]//全局的
     public IEventDispatcher Dispatcher { get; set; }
     #endregion
 
@@ -40,6 +40,7 @@ public class CubeMediator : Mediator
         Debug.Log("OnRegister_"+ CubeView);
         //
         CubeView.Init();
+        this.Dispatcher.AddListener( MediatorEvent.ScoreChange, OnScoreChange);
         this.Dispatcher.Dispatch(CmdEvent.ReqScore);
     }
 
@@ -50,11 +51,18 @@ public class CubeMediator : Mediator
     public override void OnRemove()
     {
         Debug.Log("OnRemove" );
+            this.Dispatcher.RemoveListener(MediatorEvent.ScoreChange, OnScoreChange);
+        }
+
+
+
+        #endregion
+
+        public void OnScoreChange(IEvent evt)
+        {
+            int score = (int)evt.data;
+            CubeView.UpdateScore( score);
+        }
     }
-
-    #endregion
-
-
-}
 
 }
