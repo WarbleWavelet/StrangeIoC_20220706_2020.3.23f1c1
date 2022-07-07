@@ -11,7 +11,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
  
-namespace Demo0_0
+namespace Demo01
 {
     public class ScoreModel : MonoBehaviour
     {

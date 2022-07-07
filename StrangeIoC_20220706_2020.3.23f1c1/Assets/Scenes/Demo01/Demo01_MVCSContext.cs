@@ -27,8 +27,14 @@ namespace Demo01
         /// </summary>
         protected override void mapBindings()
         {
+            //
+            mediationBinder.Bind<CubeView>().To<CubeMediator>();
+
+
             //枚举、字符串
-            commandBinder.Bind(ContextEvent.START).To<StartCommand>();
+            commandBinder.Bind(ContextEvent.START).To<StartCommand>().Once();
+
+            
         }
     }
 }

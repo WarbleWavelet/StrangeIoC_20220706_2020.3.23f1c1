@@ -266,7 +266,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   txtScore: {fileID: 286562962}
   timer: 0
-  time: 0.4
+  time: 1
 --- !u!65 &590340474
 BoxCollider:
   m_ObjectHideFlags: 0

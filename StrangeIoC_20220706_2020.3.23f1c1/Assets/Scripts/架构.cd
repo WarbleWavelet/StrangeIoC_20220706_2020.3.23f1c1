@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Comment CommentText="GameRoot">
+    <Position X="2.382" Y="1.486" Height="0.319" Width="0.874" />
+  </Comment>
+  <Class Name="CubeView" Collapsed="true">
+    <Position X="5.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQBAAAAAAAAAIAAAAAIAAAgAAAAAAAAIAACAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\View\CubeView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CubeMediator" Collapsed="true">
+    <Position X="5.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAIAEAAAAAAAAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\View\CubeMediator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Demo01.Demo01_MVCSContext" Collapsed="true">
+    <Position X="7.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scenes\Demo01\Demo01_MVCSContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Demo01.Demo01_ContextView" Collapsed="true">
+    <Position X="2.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Assets\Scenes\Demo01\Demo01_ContextView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Microsoft YaHei UI" Size="9" />
+</ClassDiagram>
