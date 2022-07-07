@@ -30,7 +30,7 @@ namespace Demo01
         protected override void mapBindings()
         {
 
-           // BindModel();
+            BindModel();
             BindService();
             BindCommand();
             BindMediator();

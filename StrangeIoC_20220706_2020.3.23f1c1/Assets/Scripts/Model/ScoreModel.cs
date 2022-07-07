@@ -13,31 +13,8 @@ using Random = UnityEngine.Random;
  
 namespace Demo01
 {
-    public class ScoreModel : MonoBehaviour
+    public class ScoreModel
     {
-        #region 字段
-
-
-        #endregion
-
-        #region 生命
-        void Start()
-        {
-            
-        }
-        
-        void Update()
-        {
-            
-        }
-        #endregion 
-
-        #region 系统
-
-        #endregion 
-
-        #region 辅助
-
-        #endregion
+      public int score;
     }
 }

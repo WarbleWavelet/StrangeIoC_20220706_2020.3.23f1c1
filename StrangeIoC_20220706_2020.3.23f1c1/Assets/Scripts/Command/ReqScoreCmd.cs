@@ -6,9 +6,7 @@
 	功能：请求分数（）
 *****************************************************/
 
-using strange.extensions.command.api;
 using strange.extensions.command.impl;
-using strange.extensions.context.api;
 using strange.extensions.dispatcher.eventdispatcher.api;
 using System.Collections;
 using System.Collections.Generic;
@@ -22,7 +20,7 @@ public class ReqScoreCmd : EventCommand//多了全局的Disphter和IEvent
     [Inject]
     public IScoreSvc ScoreSvc { get; set; }
     [Inject]
-    public ScoreModel ScoreModel { get; set; }
+    public ScoreModel ScoreModel { get; set; }//保存
 
     public override void Execute()
     {
@@ -42,9 +40,14 @@ public class ReqScoreCmd : EventCommand//多了全局的Disphter和IEvent
        private void OnComplete(IEvent evt)
         {
             Debug.Log("OnComplete_" + evt.data);
-            this.ScoreSvc.Dispatcher.RemoveListener(CmdEvent.ReqScore, OnComplete);
+
             //
-            dispatcher.Dispatch( MediatorEvent.ScoreChange, evt.data);
+            //
+            this.ScoreModel.score = (int)evt.data;
+            dispatcher.Dispatch(MediatorEvent.ScoreChange, evt.data);
+            // 
+            this.ScoreSvc.Dispatcher.RemoveListener(CmdEvent.ReqScore, OnComplete);
+
 
             //
             Release();

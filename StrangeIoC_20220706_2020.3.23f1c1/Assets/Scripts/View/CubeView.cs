@@ -16,73 +16,76 @@ using Random = UnityEngine.Random;
 
 
 namespace Demo01
-{ 
-public class CubeView : View
 {
-
-
-
-    [SerializeField]
-    Text txtScore;
-    /// <summary>
-    /// 初始化，Media中调用
-    /// </summary>
-    public void Init()
+    public class CubeView : View
     {
-        txtScore = transform.Find("Canvas/Text").GetComponent<Text>();
-    }
 
 
-    int score =0;
-    public float timer = 0f;
-    public float time = 1f;
 
-    void Update()
-    {
-        timer += Time.deltaTime;
-        if (timer > time)
+        [SerializeField]
+        Text txtScore;
+
+
+
+        /// <summary>
+        /// 初始化，Media中调用
+        /// </summary>
+        public void Init()
         {
-            timer = 0f;
-            //
-            float x = Random.Range(-8f, 8f);
-            float y = Random.Range(-4.5f, 4.5f);
-            Vector3 v3 = new Vector3(x, y, 0f);
-            x = v3.x;
-            y = v3.y;
-            if (x < -8f || x > 8f)
-            {
-                x = 0f;
-            }
-
-            if (y < -4.5f || y > 4.5f)
-            {
-                y = 0f;
-            }
-            transform.position = new Vector3(x, y, 0f);
+            txtScore = transform.Find("Canvas/Text").GetComponent<Text>();
         }
+
+
+        int score = 0;
+        public float timer = 0f;
+        public float time = 1f;
+
+        void Update()
+        {
+            timer += Time.deltaTime;
+            if (timer > time)
+            {
+                timer = 0f;
+                //
+                float x = Random.Range(-8f, 8f);
+                float y = Random.Range(-4.5f, 4.5f);
+                Vector3 v3 = new Vector3(x, y, 0f);
+                x = v3.x;
+                y = v3.y;
+                if (x < -8f || x > 8f)
+                {
+                    x = 0f;
+                }
+
+                if (y < -4.5f || y > 4.5f)
+                {
+                    y = 0f;
+                }
+                transform.position = new Vector3(x, y, 0f);
+            }
+        }
+
+
+        [Inject]//全局的
+        public IEventDispatcher Dispatcher { get; set; }
+
+
+
+
+        private void OnMouseDown()
+        {
+
+            //score++;
+            //txtScore.text = score.ToString();
+        }
+
+        public void UpdateScore(int score)
+        {
+            txtScore.text = score.ToString();
+        }
+
+
     }
-
-
-    [Inject]//全局的
-    public IEventDispatcher Dispatcher { get; set; }
-
-
-
-
-    private void OnMouseDown()
-    {
-
-        //score++;
-        //txtScore.text = score.ToString();
-    }
-
-    public void UpdateScore(int score)
-    {
-        txtScore.text=score.ToString();
-    }
-
-
-}
 
 }
 
