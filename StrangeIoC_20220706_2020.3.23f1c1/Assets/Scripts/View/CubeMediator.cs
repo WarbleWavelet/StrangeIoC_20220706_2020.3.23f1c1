@@ -6,6 +6,8 @@
 	功能：处理CubeView与外部数据的交互。由MVCSContext进行绑定
 *****************************************************/
 
+using strange.extensions.context.api;
+using strange.extensions.dispatcher.eventdispatcher.api;
 using strange.extensions.mediation.impl;
 using System.Collections;
 using System.Collections.Generic;
@@ -16,11 +18,13 @@ using Random = UnityEngine.Random;
 public class CubeMediator : Mediator
 {
     #region 字段
-    /// <summary>
-    /// 由MVCSContext进行绑定
-    /// </summary>
+    /// <summary>由MVCSContext进行绑定</summary>
     [Inject]//注入
     public CubeView CubeView { get; set; }//Demo01_MVCSContext
+
+    /// <summary>模块之间的交互</summary>
+   [Inject(ContextKeys.CONTEXT_DISPATCHER)]//全局的
+    public IEventDispatcher Dispatcher { get; set; }
     #endregion
 
     #region 生命
@@ -34,7 +38,8 @@ public class CubeMediator : Mediator
     {
         base.OnRegister();
         Debug.Log("OnRegister "+ CubeView);
-        DestroyImmediate(CubeView.gameObject);
+        //
+        Dispatcher.Dispatch(Demo01.Demo01_CommandEvent.ReqScoreCmd);
     }
 
 

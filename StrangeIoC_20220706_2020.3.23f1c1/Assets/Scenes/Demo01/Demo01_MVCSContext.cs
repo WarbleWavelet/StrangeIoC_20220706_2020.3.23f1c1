@@ -8,6 +8,7 @@
 
 using strange.extensions.context.api;
 using strange.extensions.context.impl;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,6 +18,7 @@ namespace Demo01
 {
     public class Demo01_MVCSContext : MVCSContext
     {
+        #region 系统
         public Demo01_MVCSContext(MonoBehaviour view) : base(view)
         {
          
@@ -27,14 +29,35 @@ namespace Demo01
         /// </summary>
         protected override void mapBindings()
         {
-            //
-            mediationBinder.Bind<CubeView>().To<CubeMediator>();
 
+            //BindModel();
+            BindService();
+            BindCommand();
+            BindMediator();
 
             //枚举、字符串
             commandBinder.Bind(ContextEvent.START).To<StartCommand>().Once();
 
             
         }
+        #endregion
+
+
+        private void BindModel()
+        {
+        }
+        private void BindService()
+        {
+            injectionBinder.Bind<IScoreService>().To<ScoreService>().ToSingleton();//一个，单例
+        }
+        private void BindCommand()
+        {
+            commandBinder.Bind(Demo01_CommandEvent.ReqScoreCmd).To<ReqScoreCmd>().Once();
+        }
+        private void BindMediator()
+        {
+            mediationBinder.Bind<CubeView>().To<CubeMediator>();
+        }
+
     }
 }

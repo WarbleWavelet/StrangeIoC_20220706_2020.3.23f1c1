@@ -12,9 +12,9 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 
 
-public class ScoreService : IScoreService
+public  class ScoreService : IScoreService
 {
-    public void ReqScore(string url)
+    public  void ReqScore(string url)
     {
        Debug.Log("url "+url + " Req Score:" );
     }
