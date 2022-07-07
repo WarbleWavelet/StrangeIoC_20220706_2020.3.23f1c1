@@ -9,8 +9,8 @@
 
 namespace Demo01
 {
-    public enum Demo01_CommandEvent 
+    public enum CmdEvent 
     {
-        ReqScoreCmd,
+        ReqScore,
     }
 }

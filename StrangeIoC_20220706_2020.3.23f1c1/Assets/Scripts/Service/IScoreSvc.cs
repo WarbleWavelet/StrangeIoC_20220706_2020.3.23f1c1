@@ -6,10 +6,13 @@
 	功能：向服务器存取数据
 *****************************************************/
 
- 
 
-public interface IScoreService 
+
+using strange.extensions.dispatcher.eventdispatcher.api;
+
+public interface IScoreSvc 
 {
+
     /// <summary>
     /// 向服务器求分数
     /// </summary>
@@ -30,4 +33,6 @@ public interface IScoreService
     /// <param name="url"></param>
     /// <param name="score"></param>
     void UpateScore(string url,int score);
+
+     IEventDispatcher Dispatcher { get; set; }
 }

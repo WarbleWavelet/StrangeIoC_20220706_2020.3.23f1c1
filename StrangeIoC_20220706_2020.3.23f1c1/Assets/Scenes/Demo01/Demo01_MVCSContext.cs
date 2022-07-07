@@ -30,13 +30,13 @@ namespace Demo01
         protected override void mapBindings()
         {
 
-            //BindModel();
+           // BindModel();
             BindService();
             BindCommand();
             BindMediator();
 
             //枚举、字符串
-            commandBinder.Bind(ContextEvent.START).To<StartCommand>().Once();
+            
 
             
         }
@@ -45,14 +45,16 @@ namespace Demo01
 
         private void BindModel()
         {
+            injectionBinder.Bind<CubeView>().To(CmdEvent.ReqScore);
         }
         private void BindService()
         {
-            injectionBinder.Bind<IScoreService>().To<ScoreService>().ToSingleton();//一个，单例
+            injectionBinder.Bind<IScoreSvc>().To<ScoreSvc>().ToSingleton();//一个，单例
         }
         private void BindCommand()
         {
-            commandBinder.Bind(Demo01_CommandEvent.ReqScoreCmd).To<ReqScoreCmd>().Once();
+            commandBinder.Bind(ContextEvent.START).To<StartCmd>().Once();
+            commandBinder.Bind(CmdEvent.ReqScore).To<ReqScoreCmd>().Once();
         }
         private void BindMediator()
         {

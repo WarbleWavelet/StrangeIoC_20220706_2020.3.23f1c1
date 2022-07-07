@@ -6,6 +6,7 @@
 	功能：链接GameObject
 *****************************************************/
 
+using strange.extensions.dispatcher.eventdispatcher.api;
 using strange.extensions.mediation.impl;
 using System.Collections;
 using System.Collections.Generic;
@@ -14,6 +15,8 @@ using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 
+namespace Demo01
+{ 
 public class CubeView : View
 {
 
@@ -60,15 +63,17 @@ public class CubeView : View
     }
 
 
-
+    [Inject]//全局的
+    public IEventDispatcher Dispatcher { get; set; }
 
 
 
 
     private void OnMouseDown()
     {
-        score++;
-        txtScore.text = score.ToString();
+
+        //score++;
+        //txtScore.text = score.ToString();
     }
 
     public void UpdateScore(int score)
@@ -79,3 +84,6 @@ public class CubeView : View
 
 
 }
+
+}
+

@@ -14,14 +14,14 @@ using Random = UnityEngine.Random;
  
 namespace Demo01
 {
-    public class StartCommand : Command
+    public class StartCmd : Command
     {
         /// <summary>
         /// 被调用时执行
         /// </summary>
         public override void Execute()
         {
-            Debug.Log("StartCommand");
+            Debug.Log("Execute");
         }
     }
 }

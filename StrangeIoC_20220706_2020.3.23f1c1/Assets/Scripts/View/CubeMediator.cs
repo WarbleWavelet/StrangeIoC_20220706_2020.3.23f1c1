@@ -14,7 +14,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-
+namespace Demo01
+{ 
 public class CubeMediator : Mediator
 {
     #region 字段
@@ -23,7 +24,7 @@ public class CubeMediator : Mediator
     public CubeView CubeView { get; set; }//Demo01_MVCSContext
 
     /// <summary>模块之间的交互</summary>
-   [Inject(ContextKeys.CONTEXT_DISPATCHER)]//全局的
+  [Inject(ContextKeys.CONTEXT_DISPATCHER)]//全局的
     public IEventDispatcher Dispatcher { get; set; }
     #endregion
 
@@ -35,11 +36,11 @@ public class CubeMediator : Mediator
     /// </summary>
 
     public override void OnRegister()
-    {
-        base.OnRegister();
-        Debug.Log("OnRegister "+ CubeView);
+    { 
+        Debug.Log("OnRegister_"+ CubeView);
         //
-        Dispatcher.Dispatch(Demo01.Demo01_CommandEvent.ReqScoreCmd);
+        CubeView.Init();
+        this.Dispatcher.Dispatch(CmdEvent.ReqScore);
     }
 
 
@@ -53,11 +54,7 @@ public class CubeMediator : Mediator
 
     #endregion
 
-    #region 系统
 
-    #endregion
+}
 
-    #region 辅助
-
-    #endregion
 }

@@ -6,23 +6,35 @@
 	功能：
 *****************************************************/
 
+using strange.extensions.dispatcher.eventdispatcher.api;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 
-public  class ScoreService : IScoreService
+public  class ScoreSvc : IScoreSvc
 {
+    [Inject]
+    public IEventDispatcher Dispatcher { get ; set ; }
+
     public  void ReqScore(string url)
     {
-       Debug.Log("url "+url + " Req Score:" );
+        string msg = "";
+        msg += "url_" + url;
+        msg += " ReqScore_?";
+       Debug.Log( msg );
+        //
+        OnReceiveScore();//强行调用模拟
+
     }
 
 
     public void OnReceiveScore()
     {
+        Debug.Log("OnReceiveScore");
         int score= Random.Range(0, 100);
+        Dispatcher.Dispatch(Demo01.CmdEvent.ReqScore, score);
     }
 
 

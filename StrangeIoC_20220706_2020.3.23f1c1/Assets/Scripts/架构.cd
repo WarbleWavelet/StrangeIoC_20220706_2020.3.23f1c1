@@ -3,20 +3,6 @@
   <Comment CommentText="GameRoot">
     <Position X="4.312" Y="0.722" Height="0.319" Width="0.874" />
   </Comment>
-  <Class Name="CubeView" Collapsed="true">
-    <Position X="1" Y="1.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAQBAAAAAAAAAIAAAAAIAAAgAAAAAAAAIAACAAAAAAA=</HashCode>
-      <FileName>Assets\Scripts\View\CubeView.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="CubeMediator" Collapsed="true">
-    <Position X="1" Y="2.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAIAEAAAAAAACAAAAEAAAAAAAAAAA=</HashCode>
-      <FileName>Assets\Scripts\View\CubeMediator.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="Demo01.Demo01_MVCSContext" Collapsed="true">
     <Position X="3.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
@@ -31,26 +17,47 @@
       <FileName>Assets\Scenes\Demo01\Demo01_ContextView.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ReqScoreCmd" Collapsed="true">
-    <Position X="3" Y="2.5" Width="1.5" />
+  <Class Name="ScoreSvc" Collapsed="true">
+    <Position X="6.25" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAABAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Assets\Scripts\Command\ReqScoreCmd.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="ScoreService" Collapsed="true">
-    <Position X="7.25" Y="2.25" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAKAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Assets\Scripts\Service\ScoreService.cs</FileName>
+      <HashCode>AAAAAAAAAKAAEAAAAAAAAAAAAACAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Service\ScoreSvc.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Enum Name="Demo01.Demo01_CommandEvent" Collapsed="true">
-    <Position X="3" Y="2" Width="1.5" />
+  <Class Name="Demo01.CubeMediator" Collapsed="true">
+    <Position X="1.25" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Assets\Scripts\Command\Demo01_CommandEvent.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAIAEAAAAAAACAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\View\CubeMediator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Demo01.CubeView" Collapsed="true">
+    <Position X="1.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQBAAAAAAAAAIAAAAAIAAAgAACAAAAAIAACAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\View\CubeView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Demo01.ReqScoreCmd" Collapsed="true">
+    <Position X="3.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACBAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Command\ReqScoreCmd.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Demo01.StartCmd" Collapsed="true">
+    <Position X="3.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Command\StartCmd.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="Demo01.CmdEvent" Collapsed="true">
+    <Position X="3.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Command\CmdEvent.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Font Name="Microsoft YaHei UI" Size="9" />
