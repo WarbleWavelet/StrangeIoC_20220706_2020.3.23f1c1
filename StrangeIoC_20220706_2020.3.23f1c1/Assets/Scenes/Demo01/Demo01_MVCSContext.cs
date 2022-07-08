@@ -53,9 +53,11 @@ namespace Demo01
         }
         private void BindCommand()
         {
-            commandBinder.Bind(ContextEvent.START).To<StartCmd>().Once();//开始时间
+            
             commandBinder.Bind(CmdEvent.ReqScore).To<ReqScoreCmd>();
             commandBinder.Bind(CmdEvent.UpdateScore).To<UpdateScoreCmd>();
+            //
+            commandBinder.Bind(ContextEvent.START).To<StartCmd>().Once();//开始时间
         }
         private void BindMediator()
         {

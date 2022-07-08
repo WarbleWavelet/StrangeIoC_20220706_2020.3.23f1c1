@@ -25,7 +25,7 @@ namespace Demo01
         [SerializeField]
         Text txtScore;
 
-        
+
         [Inject]
         public IEventDispatcher Dispatcher { get; set; }//请求数据
 
@@ -39,7 +39,6 @@ namespace Demo01
         }
 
 
-        int score = 0;
         public float timer = 0f;
         public float time = 1f;
 
