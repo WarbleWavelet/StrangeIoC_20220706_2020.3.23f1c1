@@ -9,8 +9,12 @@
 
 namespace Demo01
 {
-    public enum CmdEvent 
-    {
+
+    public enum CmdEvent
+    {/// <summary>请求分数</summary>
         ReqScore,
+
+        /// <summary>更新分数</summary>
+        UpdateScore
     }
 }

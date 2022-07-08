@@ -25,7 +25,7 @@ namespace Demo01
 
         /// <summary>模块之间的交互</summary>
         [Inject(ContextKeys.CONTEXT_DISPATCHER)]//全局的
-        public IEventDispatcher Dispatcher { get; set; }
+        public IEventDispatcher Context_Dispatcher { get; set; }
 
 
         #endregion
@@ -42,8 +42,11 @@ namespace Demo01
             Debug.Log("OnRegister_" + CubeView);
             //
             CubeView.Init();
-            this.Dispatcher.AddListener(MediatorEvent.ScoreChange, OnScoreChange);
-            this.Dispatcher.Dispatch(CmdEvent.ReqScore);
+            Context_Dispatcher.AddListener(MediatorEvent.ScoreChange, OnScoreChange);
+            CubeView.Dispatcher.AddListener(MediatorEvent.ClickDown,OnClickDown);           
+            //
+            Context_Dispatcher.Dispatch(CmdEvent.ReqScore);
+
         }
 
 
@@ -53,16 +56,32 @@ namespace Demo01
         public override void OnRemove()
         {
             Debug.Log("OnRemove");
-            this.Dispatcher.RemoveListener(MediatorEvent.ScoreChange, OnScoreChange);
+            Context_Dispatcher.RemoveListener(MediatorEvent.ScoreChange, OnScoreChange);
+            CubeView.Dispatcher.RemoveListener(MediatorEvent.ClickDown, OnClickDown);
         }
 
 
 
         #endregion
 
+
+
+
+        #region =>View
         public void OnScoreChange(IEvent evt)
         {
             CubeView.UpdateScore((int)evt.data);
+        }
+        #endregion
+
+
+
+        #region =>Command
+
+        #endregion
+        public void OnClickDown()
+        {
+            Context_Dispatcher.Dispatch(CmdEvent.UpdateScore);
         }
     }
 

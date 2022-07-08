@@ -1,63 +1,77 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Comment CommentText="GameRoot">
-    <Position X="4.312" Y="0.722" Height="0.319" Width="0.874" />
+    <Position X="3.312" Y="0.722" Height="0.319" Width="0.874" />
   </Comment>
   <Class Name="Demo01.Demo01_MVCSContext" Collapsed="true">
-    <Position X="3.25" Y="0.5" Width="1.5" />
+    <Position X="2.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAgEAAAAAAQAAAAABAAQAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Assets\Scenes\Demo01\Demo01_MVCSContext.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Demo01.Demo01_ContextView" Collapsed="true">
-    <Position X="1.5" Y="0.5" Width="1.5" />
+    <Position X="0.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEA=</HashCode>
       <FileName>Assets\Scenes\Demo01\Demo01_ContextView.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ScoreSvc" Collapsed="true">
-    <Position X="6.25" Y="2.5" Width="1.5" />
+    <Position X="8.25" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAKAAEAAAAAAAAAAAAACAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Assets\Scripts\Service\ScoreSvc.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="Demo01.CubeMediator" Collapsed="true">
-    <Position X="1.25" Y="3" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAIAEAAAAAAACAAAAEAAAAAAAAAAA=</HashCode>
-      <FileName>Assets\Scripts\View\CubeMediator.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="Demo01.CubeView" Collapsed="true">
-    <Position X="1.25" Y="2.25" Width="1.5" />
+    <Position X="2.25" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQBAAAAAAAAAIAAAAAIAAAgAACAAAAAIAACAAAAAAA=</HashCode>
       <FileName>Assets\Scripts\View\CubeView.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Demo01.ReqScoreCmd" Collapsed="true">
-    <Position X="3.25" Y="3" Width="1.5" />
+    <Position X="4" Y="3.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAACBAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAACBAAAAABAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Assets\Scripts\Command\ReqScoreCmd.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Demo01.StartCmd" Collapsed="true">
-    <Position X="3.25" Y="1.25" Width="1.5" />
+    <Position X="2.25" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Assets\Scripts\Command\StartCmd.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Enum Name="Demo01.CmdEvent" Collapsed="true">
-    <Position X="3.25" Y="2.25" Width="1.5" />
+  <Class Name="Demo01.UpdateScoreCmd" Collapsed="true">
+    <Position X="4" Y="4.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAABAAAAABAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Command\UpdateScoreCmd.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Demo01.ScoreModel" Collapsed="true">
+    <Position X="8.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Model\ScoreModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="Demo01.CmdEvent" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAEAAAAAAAAAAgAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Assets\Scripts\Command\CmdEvent.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Demo01.MediatorEvent" Collapsed="true">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAIAABAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\View\MediatorEvent.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Font Name="Microsoft YaHei UI" Size="9" />

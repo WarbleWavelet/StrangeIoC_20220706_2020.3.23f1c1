@@ -1,9 +1,9 @@
 /****************************************************
-    文件：ScoreModel.cs
+    文件：Constants.cs
 	作者：lenovo
     邮箱: 
-    日期：2022/7/6 22:55:2
-	功能：记录分数
+    日期：2022/7/8 14:16:7
+	功能：常量配置
 *****************************************************/
 
 using System.Collections;
@@ -13,8 +13,8 @@ using Random = UnityEngine.Random;
  
 namespace Demo01
 {
-    public class ScoreModel
+    public class Constants 
     {
-      public int Score;
+        public const string IPAddress = "127.0.0.1";
     }
 }

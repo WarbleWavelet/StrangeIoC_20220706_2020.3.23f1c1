@@ -25,6 +25,9 @@ namespace Demo01
         [SerializeField]
         Text txtScore;
 
+        
+        [Inject]
+        public IEventDispatcher Dispatcher { get; set; }//请求数据
 
 
         /// <summary>
@@ -66,17 +69,13 @@ namespace Demo01
         }
 
 
-        [Inject]//全局的
-        public IEventDispatcher Dispatcher { get; set; }
-
 
 
 
         private void OnMouseDown()
         {
 
-            //score++;
-            //txtScore.text = score.ToString();
+            Dispatcher.Dispatch(MediatorEvent.ClickDown);
         }
 
         public void UpdateScore(int score)

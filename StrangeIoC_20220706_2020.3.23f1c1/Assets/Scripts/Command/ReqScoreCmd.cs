@@ -43,7 +43,7 @@ public class ReqScoreCmd : EventCommand//多了全局的Disphter和IEvent
 
             //
             //
-            this.ScoreModel.score = (int)evt.data;
+            this.ScoreModel.Score = (int)evt.data;
             dispatcher.Dispatch(MediatorEvent.ScoreChange, evt.data);
             // 
             this.ScoreSvc.Dispatcher.RemoveListener(CmdEvent.ReqScore, OnComplete);

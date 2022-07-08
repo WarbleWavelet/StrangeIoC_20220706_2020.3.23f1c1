@@ -18,7 +18,7 @@ public  class ScoreSvc : IScoreSvc
     [Inject]
     public IEventDispatcher Dispatcher { get ; set ; }
 
-    public  void ReqScore(string url)
+    public  void ReqScore(string url=Demo01.Constants.IPAddress)
     {
         string msg = "";
         msg += "url_" + url;
@@ -39,7 +39,7 @@ public  class ScoreSvc : IScoreSvc
 
 
 
-    public void UpateScore(string url, int score)
+    public void UpateScore(string url=Demo01.Constants.IPAddress, int score=1)
     {
         Debug.Log("url " + url + " Update Score:"+ score);
     }
