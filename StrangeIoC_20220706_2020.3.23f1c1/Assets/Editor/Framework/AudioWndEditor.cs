@@ -12,9 +12,13 @@ using UnityEngine;
 using UnityEditor;
 using Random = UnityEngine.Random;
 using System;
+using System.Text;
+using System.IO;
+using UnityEngine.UI;
 
 namespace Framework
 {
+    [InitializeOnLoad]
     public class AudioWndEditor : EditorWindow
     {
         #region 字段
@@ -22,10 +26,36 @@ namespace Framework
         public  string audioPath;
         /// <summary>内存生命挂载跟随窗口</summary>
         Dictionary<string, string> audioDic = new Dictionary<string, string>();
+        //
+        /// <summary>time s刷新面板，防止从VS修改回来过后清空</summary>
+        public float timer = 0f;
+        public float time = 2f;
 
+
+     
         #endregion
 
         #region 生命
+        private void Awake()
+        {
+            // Test_Application_Path();
+            LoadList();
+            timer = 0f;
+            time = 2f;
+
+        }
+        
+        private void OnInspectorUpdate()//1s跑10次
+        {
+            
+            timer += 0.1f;
+            if (timer > time)
+            {
+                LoadList();
+                timer = 0f;
+            }
+        }
+
         [MenuItem("Manager/AudioMgr")]
         static void CreateAudioWnd()
         { 
@@ -42,12 +72,7 @@ namespace Framework
             audioPath = EditorGUILayout.TextField("路径", audioPath);
             if (GUILayout.Button("添加音效"))
             {
-
-                 ShowList();
-
-
-              
-
+                ShowList();
                 //
                 AudioClip clip = Resources.Load<AudioClip>(audioPath);
                 if (clip == null)
@@ -57,22 +82,21 @@ namespace Framework
                 }
                 else
                 {
-                    if ( audioDic.ContainsKey(audioName) )
+                    if (audioDic.ContainsKey(audioName))
                     {
                         Debug.LogWarning("文件\"" + audioName + "\"已存在");
                     }
                     else
                     {
                         audioDic.Add(audioName, audioPath);
+                        SaveList();
                         Debug.Log("文件\"" + audioName + "\"添加成功");
-
-
                     }
                 }
             }
             if (GUILayout.Button("ResAudio"))
             {
-                audioPath = "ResAudio/"+audioName;
+                audioPath = "ResAudio/" + audioName;
             }
             if (GUILayout.Button("重置输入"))
             {
@@ -82,8 +106,8 @@ namespace Framework
             }
             if (GUILayout.Button("清空音效"))
             {
-
                 audioDic.Clear();
+                SaveList();
                 Debug.Log("文件\"" + audioName + "\"清空成功");
             }
 
@@ -92,10 +116,31 @@ namespace Framework
 
                 ShowList();
             }
+            GUILayout.BeginHorizontal();
+            if (GUILayout.Button("保存列表"))
+            {
 
+                SaveList();
+                Debug.Log("文件\"" + Constants.SavePath + "\"保存成功");
+            }
+            if (GUILayout.Button("加载列表"))
+            {
+
+                LoadList();
+                Debug.Log("文件\"" + Constants.SavePath + "\"加载成功");
+            }
+            GUILayout.EndHorizontal();
 
         }
+        
+        #endregion
 
+
+
+        #region 辅助
+        /// <summary>
+        /// 数据显示在面板上
+        /// </summary>
         private void ShowList()
         {
             GUILayout.BeginHorizontal();
@@ -110,53 +155,81 @@ namespace Framework
                 string value;
                 audioDic.TryGetValue(key, out value);
                 //
-                GUILayout.BeginHorizontal();                
+                GUILayout.BeginHorizontal();
                 GUILayout.Label(key);
                 GUILayout.Label(value);
                 if (GUILayout.Button("删除"))
-                { 
+                {
                     audioDic.Remove(key);
+                    SaveList();
                     return;//重新绘制
                 }
- 
-                GUILayout.EndHorizontal();
 
+                GUILayout.EndHorizontal();
+                
             }
         }
 
-        private void A()
+        /// <summary>
+        /// 数据保存到本地
+        /// </summary>
+        void SaveList()
         {
-            AudioClip clip = LoadAudio(audioPath, true);
-            if (clip == null)
+            StringBuilder sb = new StringBuilder();
+            foreach (string key in audioDic.Keys)
             {
-                Debug.LogWarning("路径\"" + audioPath + "\"不存在");
-                audioPath = "";
+                string value;
+                audioDic.TryGetValue(key, out value);
+                //
+                sb.Append(key + "," + value + "\n");
+
             }
-            else
+
+            File.WriteAllText(Constants.SavePath, sb.ToString());//覆盖
+            //File.AppendAllText(Constants.SavePath, sb.ToString());//追加
+
+            AssetDatabase.Refresh();//刷新文件夹
+        }
+
+
+        /// <summary>
+        /// 加载本地数据到面板
+        /// </summary>
+        void LoadList()
+        {
+            if (File.Exists(Constants.SavePath) == false)
+            { 
+                return;
+            }
+            //
+            audioDic.Clear();
+            string[] lines = File.ReadAllLines(Constants.SavePath);
+            foreach (string line in lines)
             {
-                if (ContainKey(ResType.Audio, audioPath))
+                if (string.IsNullOrEmpty(line))
                 {
-                    Debug.LogWarning("文件\"" + audioName + "\"已存在");
-                    AudioSvc.Instance.PlayBgMusic("uiClickBtn");
+                    continue;
                 }
                 else
-                {
-                    LoadAudio(audioPath, true);
-                    Debug.LogWarning("文件\"" + audioName + "\"添加成功");
-                    audioName = "";
-                    audioPath = "";
-
+                { 
+                   string[] pairs = line.Split(',');
+                    audioDic.Add(pairs[0], pairs[1]);   
                 }
             }
         }
 
-        #endregion 
 
-        #region 系统
+        void Test_Application_Path()
+        {
+            //Debug.Log(Application.consoleLogPath);
+            //Debug.Log(Application.temporaryCachePath);
+            //Debug.Log(Application.persistentDataPath); 
+            ////
+            //Debug.Log(Application.dataPath);
+            //Debug.Log(Application.streamingAssetsPath);
+        }
 
-        #endregion 
 
-        #region 辅助
         /// <summary>
         /// 大小不可以拖拽
         /// </summary>
@@ -172,53 +245,9 @@ namespace Framework
         }
         #endregion
 
-        #region Audio
-
-
-        Dictionary<string ,AudioClip> audioDic1=new Dictionary<string ,AudioClip>();    
-        /// <summary>
-        /// 加载声音
-        /// </summary>
-        /// <param name="path"></param>
-        /// <param name="cache">缓存不？</param>
-        /// <returns></returns>
-
-        public AudioClip LoadAudio(string path, bool cache = false)
-        {
-            AudioClip au = null;
-            if (audioDic1.TryGetValue(path, out au) == false)
-            {
-                au = Resources.Load<AudioClip>(path);
-                if (cache)
-                {
-                    audioDic1.Add(path, au);
-                }
-            }
-
-            return au;
-        }
-
-        public bool ContainKey(ResType type, string key)
-        {
-            bool isContain = false;
-            switch (type)
-            {
-                case ResType.Audio:
-                    {
-                        isContain = audioDic.ContainsKey(key);
-                    }
-                    break;
-                default:
-                    {
-
-                    }
-                    break;
-            }
-            return isContain;
-        }
+        #region 系统
 
         #endregion
-
     }
 
    
