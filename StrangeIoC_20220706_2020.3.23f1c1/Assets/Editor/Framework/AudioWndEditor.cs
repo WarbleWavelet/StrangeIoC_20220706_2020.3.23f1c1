@@ -11,15 +11,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using Random = UnityEngine.Random;
- 
+using System;
+
 namespace Framework
 {
     public class AudioWndEditor : EditorWindow
     {
         #region 字段
         public  string audioName;
-        public  string audioPath;   
-        Dictionary<string, AudioClip> audioDic = new Dictionary<string, AudioClip>();
+        public  string audioPath;
+        /// <summary>内存生命挂载跟随窗口</summary>
+        Dictionary<string, string> audioDic = new Dictionary<string, string>();
 
         #endregion
 
@@ -34,12 +36,20 @@ namespace Framework
 
         private void OnGUI()
         {
+
+            ShowList();
             audioName = EditorGUILayout.TextField("文件名", audioName);
             audioPath = EditorGUILayout.TextField("路径", audioPath);
             if (GUILayout.Button("添加音效"))
-            { 
-            
-               AudioClip clip = Resources.Load<AudioClip>(audioPath);
+            {
+
+                 ShowList();
+
+
+              
+
+                //
+                AudioClip clip = Resources.Load<AudioClip>(audioPath);
                 if (clip == null)
                 {
                     Debug.LogWarning("路径\"" + audioPath + "\"不存在");
@@ -53,7 +63,7 @@ namespace Framework
                     }
                     else
                     {
-                        audioDic.Add(audioName, clip);
+                        audioDic.Add(audioName, audioPath);
                         Debug.Log("文件\"" + audioName + "\"添加成功");
 
 
@@ -77,7 +87,41 @@ namespace Framework
                 Debug.Log("文件\"" + audioName + "\"清空成功");
             }
 
+            if (GUILayout.Button("显示音效列表"))
+            {
 
+                ShowList();
+            }
+
+
+        }
+
+        private void ShowList()
+        {
+            GUILayout.BeginHorizontal();
+            GUILayout.Label("文件名");
+            GUILayout.Label("路径");
+            GUILayout.Label("删除");
+            GUILayout.EndHorizontal();
+
+
+            foreach (string key in audioDic.Keys)
+            {
+                string value;
+                audioDic.TryGetValue(key, out value);
+                //
+                GUILayout.BeginHorizontal();                
+                GUILayout.Label(key);
+                GUILayout.Label(value);
+                if (GUILayout.Button("删除"))
+                { 
+                    audioDic.Remove(key);
+                    return;//重新绘制
+                }
+ 
+                GUILayout.EndHorizontal();
+
+            }
         }
 
         private void A()
@@ -130,6 +174,8 @@ namespace Framework
 
         #region Audio
 
+
+        Dictionary<string ,AudioClip> audioDic1=new Dictionary<string ,AudioClip>();    
         /// <summary>
         /// 加载声音
         /// </summary>
@@ -140,12 +186,12 @@ namespace Framework
         public AudioClip LoadAudio(string path, bool cache = false)
         {
             AudioClip au = null;
-            if (audioDic.TryGetValue(path, out au) == false)
+            if (audioDic1.TryGetValue(path, out au) == false)
             {
                 au = Resources.Load<AudioClip>(path);
                 if (cache)
                 {
-                    audioDic.Add(path, au);
+                    audioDic1.Add(path, au);
                 }
             }
 
