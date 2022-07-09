@@ -21,9 +21,17 @@ namespace Demo02
         #endregion
 
         #region 生命
+
+        private void OnEnable()
+        {
+
+            transform.position = new Vector3(0, 5, 0f);
+            //
+            Invoke("DelayInactiveSelf", 3);
+        }
         void Start()
         {
-            Invoke("DelayInactiveSelf", 3);
+           
         }
         
         void Update()

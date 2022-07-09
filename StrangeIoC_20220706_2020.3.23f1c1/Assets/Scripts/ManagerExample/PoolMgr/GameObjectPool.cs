@@ -26,30 +26,68 @@ namespace Demo02
         private GameObject prefab;
         [SerializeField]
         private int maxCnt;
-        private int curCnt;
         //
         [NonSerialized]
-        List<GameObject> goLst=new List<GameObject>();
+        List<GameObject> goLst = new List<GameObject>();
         #endregion
 
         #region 生命
         void Start()
         {
-            
+
         }
-        
+
         void Update()
         {
-            
+
         }
-        #endregion 
+
+
+        #endregion
 
         #region 系统
 
-        #endregion 
+        #endregion
 
         #region 辅助
+        public string GetName()
+        {
+            return name;
+        }
 
+        public GameObject GetInstance()
+        {
+            //初始化
+            if (goLst.Count < maxCnt)
+            {
+                goLst.Clear();
+                for (int i = 0; i < maxCnt; i++)
+                {
+                    GameObject go = GameObject.Instantiate(prefab);
+                    go.SetActive(false);
+                    goLst.Add(go);
+                }
+            }
+            //有
+            foreach (GameObject go in goLst)
+            {
+                if (go.activeInHierarchy == false)
+                {
+                    go.SetActive(true);
+                    return go;
+                }
+            }
+            //没有清库存
+            if (goLst.Count >= maxCnt)
+            {
+                GameObject.Destroy(goLst[0]);
+                goLst.RemoveAt(0);
+            }
+            //加
+            GameObject newGo = GameObject.Instantiate(prefab);
+            goLst.Add(newGo);
+            return newGo;
+        }
         #endregion
     }
 }

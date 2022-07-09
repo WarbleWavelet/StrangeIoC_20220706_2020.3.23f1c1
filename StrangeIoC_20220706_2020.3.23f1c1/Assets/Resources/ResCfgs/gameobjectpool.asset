@@ -12,4 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb7df30fc8555d446999bd2fa5074f5e, type: 3}
   m_Name: gameobjectpool
   m_EditorClassIdentifier: 
-  poolLst: []
+  poolLst:
+  - name: Bullet
+    prefab: {fileID: 775469802257830357, guid: 711f9a8f158515244bc9822026b866c4, type: 3}
+    maxCnt: 9
+  - name: Ball
+    prefab: {fileID: 775469802257830357, guid: 7a1a1eccd8d5f8948a05e4d8dded412a, type: 3}
+    maxCnt: 9

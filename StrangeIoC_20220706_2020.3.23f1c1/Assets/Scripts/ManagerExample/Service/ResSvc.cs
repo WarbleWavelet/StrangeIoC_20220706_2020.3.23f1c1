@@ -20,14 +20,19 @@ namespace Demo02
         public void InitSvc()
         {
             Instance = this;
-            InitAudioCfg();
+            InitAudioCfg(PathDefine.Res_SavePath_Audio);
+            InitGameObjectPoolCfg(PathDefine.Res_GameObjectPoolCfg);
             Debug.Log("ResSvc Init...");
         }
 
-        private void InitAudioCfg()
+
+
+        #region Audio
+        private Dictionary<string, AudioClip> audioDic = new Dictionary<string, AudioClip>();
+        private void InitAudioCfg(string path)
         {
            
-            TextAsset ta= Resources.Load<TextAsset>("ResText/audiolist"); //不加后缀
+            TextAsset ta= Resources.Load<TextAsset>(path); //不加后缀
             string[] lines= ta.text.Split('\n');
             foreach (string line in lines)
             {
@@ -41,10 +46,10 @@ namespace Demo02
                 LoadAudio(value,true);
 
             }
-            int a = 1;//打断点
+            //int a = 1;//打断点
         }
 
-        private Dictionary<string, AudioClip> audioDic = new Dictionary<string, AudioClip>();
+       
         public AudioClip LoadAudio(string audioPath,  bool cache = false)
         {
             AudioClip clip = null;
@@ -58,5 +63,38 @@ namespace Demo02
             }
             return clip;
         }
+        #endregion
+
+
+        #region GameObjectPool
+        private Dictionary<string, GameObjectPool> gameObjectPoolDic = new Dictionary<string, GameObjectPool>();
+       // GameObjectPoolLst gameObjectPoolLst=new GameObjectPoolLst();
+
+        private void InitGameObjectPoolCfg(string path)
+        {
+
+            GameObjectPoolLst lst = Resources.Load<GameObjectPoolLst>(path);
+            foreach (GameObjectPool pool in lst.poolLst)
+            {
+                gameObjectPoolDic.Add(pool.GetName(),pool);
+            }
+        }
+
+        /// <summary>
+        /// Pool中Go一个
+        /// </summary>
+        /// <param name="poolName"></param>
+        /// <returns></returns>
+       public GameObject LoadGameObjectByPool(string poolName)
+        {
+            GameObjectPool pool = null;
+            if (gameObjectPoolDic.TryGetValue(poolName, out pool))
+            {
+                return pool.GetInstance();                
+            }
+            return null;
+        }
+        #endregion
+
     }
 }

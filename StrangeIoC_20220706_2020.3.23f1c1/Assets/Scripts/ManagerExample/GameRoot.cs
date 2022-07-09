@@ -16,19 +16,38 @@ namespace Demo02
     public class GameRoot : MonoBehaviour
     {
         #region 字段
-        AudioSvc audioSvc;
-        ResSvc resSvc;
+      public  AudioSvc audioSvc;
+      public  ResSvc resSvc;
+      public  PoolMgr poolMgr;
+        #region 单例
+        private static GameRoot _instance;
+
+        public static GameRoot Instance
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    _instance = new GameRoot();
+                }
+                return _instance;
+            }
+        }
+        #endregion
 
         #endregion
 
         #region 生命
         void Start()
+      // public void Init()//交给StartCommand
         {
             audioSvc=GetComponent<AudioSvc>();
             resSvc=GetComponent<ResSvc>();
+            poolMgr=GetComponent<PoolMgr>();
             //
             resSvc.InitSvc();
             audioSvc.InitSvc();
+            poolMgr.InitMgr();
 
         }
         

@@ -13,11 +13,20 @@ namespace Demo02
 { 
 public class PathDefine
 {
+        // public static string GameObjectPoolCfg = Application.dataPath + "/Resources/ResCfgs/gameobjectpool.property";
+        public static string GameObjectPoolCfg = "Assets/Resources/ResCfgs/gameobjectpool.asset";
+        public static string Res_GameObjectPoolCfg = "ResCfgs/gameobjectpool";
+        //
+        public static string SavePath_Framework = Application.dataPath + "\\Editor\\Framework\\Resources\\audiolist.txt";
+        public static string SavePath_Resources1 = Application.dataPath + "\\Resources\\ResText\\audiolist.txt";
+        public static string SavePath_Resources = Application.dataPath + "/Resources/ResText/audiolist.txt";
+        public static string SavePath1 = "ResText\\audiolist.txt";
+        public static string Res_SavePath_Audio = "ResText/audiolist";
+        public static string Path = "audiolist.txt";
+        #region Cfg    
 
-    #region Cfg    
-   // public static string GameObjectPoolCfg = Application.dataPath + "/Resources/ResCfgs/gameobjectpool.property";
-    public static string GameObjectPoolCfg = "Assets/Resources/ResCfgs/gameobjectpool.asset";
-    public const string RDNameCfg = "ResCfgs/rdname";
+        //
+        public const string RDNameCfg = "ResCfgs/rdname";
     public const string MapCfg = "ResCfgs/map";
     public const string MapCfg_V1 = "ResCfgs/map_v1";
     public const string GuideCfg = "ResCfgs/guide";
@@ -47,12 +56,7 @@ public class PathDefine
 
     public const string AssassinCityPlayerPrefab = "PrefabPlayer/AssassinCity";
     public const string AssassinBattlePlayerPrefab = "PrefabPlayer/AssassinBattle";
-    public static string SavePath_Framework = Application.dataPath + "\\Editor\\Framework\\Resources\\audiolist.txt";
-    public static string SavePath_Resources1 = Application.dataPath + "\\Resources\\ResText\\audiolist.txt";
-    public static string SavePath_Resources = Application.dataPath + "/Resources/ResText/audiolist.txt";
-    public static string SavePath1 ="ResText\\audiolist.txt";
-    public static string SavePath ="ResText/audiolist.txt";
-    public static string Path ="audiolist.txt";
+
 
     #region 强化页
     /// <summary>强化部位被点击时</summary>

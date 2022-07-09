@@ -11,6 +11,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
+using Demo02;
  
 namespace Demo01
 {
@@ -22,6 +23,7 @@ namespace Demo01
         public override void Execute()
         {
             Debug.Log("Execute");
+            //GameRoot.Instance.Init();
         }
     }
 }

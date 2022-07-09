@@ -22,7 +22,7 @@ namespace Demo01
         #endregion
 
         #region 生命
-        private void Awake()
+        public void Awake()
         {
             this.context = new Demo01_MVCSContext(this);
         }
