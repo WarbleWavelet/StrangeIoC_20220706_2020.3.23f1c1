@@ -9,12 +9,11 @@
 
 using UnityEngine;
 
-namespace Framework
+namespace Demo02
 {
     public class Constants
     {
-        public static string SavePath_Framework = Application.dataPath + "\\Editor\\Framework\\Resources\\audiolist.txt";
-        public static string SavePath_Resources = Application.dataPath + "\\Resources\\ResText\\audiolist.txt";
+
         #region Audio
         public const string BGLogin = "bgLogin";
         /// <summary>进入主城的Bgm</summary>

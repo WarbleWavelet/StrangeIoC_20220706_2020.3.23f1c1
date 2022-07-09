@@ -121,13 +121,13 @@ namespace Framework
             {
 
                 SaveList();
-                Debug.Log("文件\"" + Constants.SavePath + "\"保存成功");
+                Debug.Log("文件\"" + Constants.SavePath_Framework + "\"保存成功");
             }
             if (GUILayout.Button("加载列表"))
             {
 
                 LoadList();
-                Debug.Log("文件\"" + Constants.SavePath + "\"加载成功");
+                Debug.Log("文件\"" + Constants.SavePath_Framework + "\"加载成功");
             }
             GUILayout.EndHorizontal();
 
@@ -185,7 +185,8 @@ namespace Framework
 
             }
 
-            File.WriteAllText(Constants.SavePath, sb.ToString());//覆盖
+            File.WriteAllText(Constants.SavePath_Framework, sb.ToString());//覆盖
+            File.WriteAllText(Constants.SavePath_Resources, sb.ToString());//覆盖
             //File.AppendAllText(Constants.SavePath, sb.ToString());//追加
 
             AssetDatabase.Refresh();//刷新文件夹
@@ -197,13 +198,13 @@ namespace Framework
         /// </summary>
         void LoadList()
         {
-            if (File.Exists(Constants.SavePath) == false)
+            if (File.Exists(Constants.SavePath_Framework) == false)
             { 
                 return;
             }
             //
             audioDic.Clear();
-            string[] lines = File.ReadAllLines(Constants.SavePath);
+            string[] lines = File.ReadAllLines(Constants.SavePath_Framework);
             foreach (string line in lines)
             {
                 if (string.IsNullOrEmpty(line))
