@@ -19,6 +19,7 @@ namespace Demo02
       public  AudioSvc audioSvc;
       public  ResSvc resSvc;
       public  PoolMgr poolMgr;
+        public LocalizationMgr localizationMgr;
         #region 单例
         private static GameRoot _instance;
 
@@ -44,10 +45,12 @@ namespace Demo02
             audioSvc=GetComponent<AudioSvc>();
             resSvc=GetComponent<ResSvc>();
             poolMgr=GetComponent<PoolMgr>();
+            localizationMgr=GetComponent<LocalizationMgr>();
             //
             resSvc.InitSvc();
             audioSvc.InitSvc();
             poolMgr.InitMgr();
+            localizationMgr.Init();
 
         }
         

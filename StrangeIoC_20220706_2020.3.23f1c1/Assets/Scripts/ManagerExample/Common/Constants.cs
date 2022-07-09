@@ -36,7 +36,9 @@ namespace Demo02
         public const string AssassinHit = "assassin_Hit";
         #endregion
 
-
+        #region Localization本地化
+        public const string LANGUAGE = "Chinese";
+        #endregion
 
     }
 }

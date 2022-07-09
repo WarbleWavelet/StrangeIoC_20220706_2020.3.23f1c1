@@ -13,15 +13,24 @@ namespace Demo02
 { 
 public class PathDefine
 {
+
+        #region Localization本地化
+        public const string Localization_Chinese = "ResLocalization/Chinese";
+        public const string Localization_English = "ResLocalization/English";
+        #endregion
+
+
+        public const string Res_GameObjectPoolCfg = "ResCfgs/gameobjectpool";
+        public const string Res_SavePath_Audio = "ResText/audiolist";
+
         // public static string GameObjectPoolCfg = Application.dataPath + "/Resources/ResCfgs/gameobjectpool.property";
         public static string GameObjectPoolCfg = "Assets/Resources/ResCfgs/gameobjectpool.asset";
-        public static string Res_GameObjectPoolCfg = "ResCfgs/gameobjectpool";
+
         //
         public static string SavePath_Framework = Application.dataPath + "\\Editor\\Framework\\Resources\\audiolist.txt";
         public static string SavePath_Resources1 = Application.dataPath + "\\Resources\\ResText\\audiolist.txt";
         public static string SavePath_Resources = Application.dataPath + "/Resources/ResText/audiolist.txt";
         public static string SavePath1 = "ResText\\audiolist.txt";
-        public static string Res_SavePath_Audio = "ResText/audiolist";
         public static string Path = "audiolist.txt";
         #region Cfg    
 

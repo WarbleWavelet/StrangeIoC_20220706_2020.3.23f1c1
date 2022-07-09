@@ -22,6 +22,7 @@ namespace Demo02
             Instance = this;
             InitAudioCfg(PathDefine.Res_SavePath_Audio);
             InitGameObjectPoolCfg(PathDefine.Res_GameObjectPoolCfg);
+            InitLocalizationCfg(PathDefine.Localization_Chinese);
             Debug.Log("ResSvc Init...");
         }
 
@@ -96,5 +97,38 @@ namespace Demo02
         }
         #endregion
 
+        #region Localization
+        private Dictionary<string, string> localizationDic = new Dictionary<string, string>();
+
+        private void InitLocalizationCfg(string path)
+        {
+            TextAsset ta= Resources.Load<TextAsset>(path);
+            string[] lines=ta.text.Split('\n');
+
+            foreach (string line in lines)
+            {
+                if (string.IsNullOrEmpty(line))
+                {
+                    continue;
+                }
+
+                string[] kv=line.Split('=');
+                localizationDic.Add(kv[0], kv[1]);
+
+            }
+           
+        }
+
+        public string GetLocalization(string key)
+        {
+            string value;
+            if (localizationDic.TryGetValue(key, out value))
+            {
+                return value;
+            }
+
+            return null;
+        }
+        #endregion
     }
 }
