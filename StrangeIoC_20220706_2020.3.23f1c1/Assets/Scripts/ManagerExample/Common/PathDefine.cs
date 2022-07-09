@@ -14,7 +14,9 @@ namespace Demo02
 public class PathDefine
 {
 
-    #region Cfg
+    #region Cfg    
+   // public static string GameObjectPoolCfg = Application.dataPath + "/Resources/ResCfgs/gameobjectpool.property";
+    public static string GameObjectPoolCfg = "Assets/Resources/ResCfgs/gameobjectpool.asset";
     public const string RDNameCfg = "ResCfgs/rdname";
     public const string MapCfg = "ResCfgs/map";
     public const string MapCfg_V1 = "ResCfgs/map_v1";
@@ -25,6 +27,7 @@ public class PathDefine
     public const string SkillMoveCfg = "ResCfgs/skillmove";
     public const string SkillActionCfg = "ResCfgs/skillaction";
     public const string MonsterCfg = "ResCfgs/monster";
+
     #endregion
 
     #region AutoGuide
