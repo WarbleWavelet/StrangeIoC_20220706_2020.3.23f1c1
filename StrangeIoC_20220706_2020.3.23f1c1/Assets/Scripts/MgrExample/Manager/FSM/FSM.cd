@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="FSM.FSMSys" Collapsed="true">
+    <Position X="3.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAGAAAAAAAAAAAFAAABBAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Assets\Scripts\ManagerExample\Manager\FSM\FSMSys.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FSM.EnemyControl" Collapsed="true">
+    <Position X="2" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAAAAIABAABAIAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\ManagerExample\Manager\FSM\EnemyControl.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FSM.ChaseState" Collapsed="true">
+    <Position X="2.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAQAAAAAAAkAAAAAAAAAEAAABAAAQAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\ManagerExample\Manager\FSM\State\ChaseState.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FSM.FSMState" Collapsed="true">
+    <Position X="4" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAQAAAgAAAAgAAAAAAAAAEAAIAIIABAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\ManagerExample\Manager\FSM\State\FSMState.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FSM.PatrolState" Collapsed="true">
+    <Position X="5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAAAAAAAkAAAAAAAAIMAAABAAAQAAAAAAQ=</HashCode>
+      <FileName>Assets\Scripts\ManagerExample\Manager\FSM\State\PatrolState.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FSM.Tags" Collapsed="true">
+    <Position X="10.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>Assets\Scripts\ManagerExample\Manager\FSM\Tags.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="FSM.Transition" Collapsed="true">
+    <Position X="5.75" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAQA=</HashCode>
+      <FileName>Assets\Scripts\ManagerExample\Manager\FSM\State\FSMState.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="FSM.StateID" Collapsed="true">
+    <Position X="6.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAQAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\ManagerExample\Manager\FSM\State\FSMState.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Microsoft YaHei UI" Size="9" />
+</ClassDiagram>

@@ -6,7 +6,7 @@
 	功能：链接GameObject
 *****************************************************/
 
-using Demo02;
+using Framework;
 using strange.extensions.dispatcher.eventdispatcher.api;
 using strange.extensions.mediation.impl;
 using System.Collections;
@@ -67,14 +67,7 @@ namespace Demo01
                 transform.position = new Vector3(x, y, 0f);
             }
 
-            if (Input.GetKeyDown(KeyCode.Z))
-            {
-                AudioSvc.Instance.PlayUIAudio(Demo02.Constants.UIClickBtn);
-            }
-            if (Input.GetKeyDown(KeyCode.Z))
-            {
-                PoolMgr.Instance.LoadGameObject("Bullet");
-            }
+
         }
 
 

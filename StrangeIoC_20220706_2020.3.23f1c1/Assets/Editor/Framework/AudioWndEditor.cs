@@ -16,7 +16,7 @@ using System.Text;
 using System.IO;
 using UnityEngine.UI;
 
-namespace Framework
+namespace Extense
 {
     [InitializeOnLoad]
     public class AudioWndEditor : EditorWindow

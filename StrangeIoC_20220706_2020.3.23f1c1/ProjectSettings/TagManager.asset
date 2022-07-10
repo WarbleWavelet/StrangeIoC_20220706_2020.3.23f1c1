@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - LocalizationText
+  - WayPoint
+  - Enemy
   layers:
   - Default
   - TransparentFX

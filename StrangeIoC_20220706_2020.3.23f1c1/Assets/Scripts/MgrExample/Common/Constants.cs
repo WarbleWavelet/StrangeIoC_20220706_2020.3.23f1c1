@@ -9,13 +9,15 @@
 
 using UnityEngine;
 
-namespace Extense
+namespace Framework
 {
     public class Constants
     {
-        public static string SavePath_Framework = Application.dataPath + "\\Editor\\Framework\\Resources\\audiolist.txt";
-        public static string SavePath_Resources = Application.dataPath + "\\Resources\\ResText\\audiolist.txt";
+
         #region Audio
+
+
+        //
         public const string BGLogin = "bgLogin";
         /// <summary>进入主城的Bgm</summary>
         public const string BGMainCity = "bgMainCity";
@@ -34,7 +36,9 @@ namespace Extense
         public const string AssassinHit = "assassin_Hit";
         #endregion
 
-
+        #region Localization本地化
+        public const string LANGUAGE = "Chinese";
+        #endregion
 
     }
 }
